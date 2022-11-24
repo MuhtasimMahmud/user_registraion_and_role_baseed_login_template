@@ -40,14 +40,19 @@ public class signUpController {
         try{
 
             String role = "ROLE_"+user.getRole();
-
             user.setRole(role);
 
-            user.setPassword(passwordEncoder.encode(user.getPassword()));
-            User UserResult = this.userRepository.save(user);
+            User checkDuplicate = userRepository.findByEmail(user.getEmail());
+            if(checkDuplicate == null){
+                user.setPassword(passwordEncoder.encode(user.getPassword()));
+                User UserResult = this.userRepository.save(user);
+                model.addAttribute("user", new User());
+                session.setAttribute("message", new Message("Successfully Registered !!", "alert-success"));
 
-            model.addAttribute("user", new User());
-            session.setAttribute("message", new Message("Successfully Registered !!", "alert-success"));
+            }else{
+                model.addAttribute("user", user);
+                session.setAttribute("message", new Message("Please give an unique email address.", "alert-danger"));
+            }
 
             return "signUp";
 
