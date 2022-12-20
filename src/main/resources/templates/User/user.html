@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="User/Userbase::layout(~{::section})">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport"
@@ -8,8 +8,13 @@
         <title>Document</title>
     </head>
     <body>
-        <h1> This is user page. </h1>
-        <a th:href="@{/logout}" id="logout">Logout</a>
+
+        <section>
+            <h1> This is user page. </h1>
+            <a th:href="@{/logout}" id="logout">Logout</a>
+
+        </section>
+
 
     </body>
 </html>
