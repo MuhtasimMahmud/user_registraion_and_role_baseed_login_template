@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport"
@@ -37,6 +37,9 @@
         </div>
 
     </nav>
+
+    <div th:replace="${content}"> </div>
+
 
 
 
