@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="Admin/adminbase::layout(~{::section})">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport"
@@ -8,7 +8,16 @@
         <title>Document</title>
     </head>
     <body>
-        <h1> This is admin page</h1>
-        <a th:href="@{/logout}" id="logout">Logout</a>
+
+        <section>
+            <h1 class="text-center mb-5 mt-5"> This is Admin page. </h1>
+
+            <div class="text-center">
+                <a th:href="@{/logout}" id="logout"> <button class="btn btn-success"> Logout </button> </a>
+            </div>
+
+        </section>
+
+
     </body>
 </html>
